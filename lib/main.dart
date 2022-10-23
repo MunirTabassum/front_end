@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:front_end/screens/faculty/faculty_Dashboard/dashboard.dart';
 import 'package:front_end/screens/user_type/user_type.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
