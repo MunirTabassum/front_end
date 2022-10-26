@@ -72,13 +72,13 @@ class _HomeState extends State<Home> {
                 )
               ],
             ),
-            selectedLabelTextStyle: TextStyle(
+            selectedLabelTextStyle: const TextStyle(
               color: Colors.orangeAccent,
               fontSize: 14,
               letterSpacing: 1,
               decorationThickness: 2.0,
             ),
-            unselectedLabelTextStyle: TextStyle(
+            unselectedLabelTextStyle: const TextStyle(
               fontSize: 13,
               letterSpacing: 0.8,
             ),
