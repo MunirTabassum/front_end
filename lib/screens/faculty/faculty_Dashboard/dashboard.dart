@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:front_end/widgets/dashboardwidgets.dart';
 import '../../../widgets/user_type_widgets.dart';
+import 'Objectives/objectives.dart';
 import 'Objectives/tab_views.dart';
+import 'courses/courses.dart';
 
 class FacultyDashboard extends StatefulWidget {
   const FacultyDashboard({Key? key}) : super(key: key);
@@ -13,94 +15,19 @@ class FacultyDashboard extends StatefulWidget {
 class _FacultyDashboardState extends State<FacultyDashboard> {
   final List<Widget> _screens = [
     //  Content for Objective tab
-    Container(
-        decoration: const BoxDecoration(
-            // image: DecorationImage(
-            //     image: AssetImage('assets/ucimage.jpg'),
-            //     fit: BoxFit.cover),
-            ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 40.0),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                userTypePageText(
-                  txt: 'Interact  ',
-                  txtClr: Colors.black,
-                  fontSize: 40,
-                ),
-                userTypePageText(
-                  txt: 'with ',
-                  txtClr: Colors.purple,
-                  fontSize: 40,
-                ),
-                userTypePageText(
-                  txt: ' Objectives ',
-                  txtClr: Colors.black,
-                  fontSize: 40,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 45,
-            ),
-            Container(
-              height: 50,
-              width: 300,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-              ),
-              child: TabBar(
-                  indicator: BoxDecoration(
-                    color: Color(0xFF175353),
-                    border: Border.all(width: 0.5),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.black,
-                  tabs: [
-                    dashboardRegisterTab(
-                        title: 'Add Objectives', icn: Icons.home),
-                    dashboardRegisterTab(
-                        title: 'View Objectives', icn: Icons.home),
-                  ]),
-            ),
-            const Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(top: 35.0),
-                child: tab_Views(),
-              ),
-            ),
-          ]),
-        )),
-    // Container(
-    //   // color: Colors.yellow.shade100,
-    //   alignment: Alignment.center,
-    //   child: const Text(
-    //     'Objectives',
-    //     style: TextStyle(fontSize: 40, fontFamily: 'Dongle'),
-    //   ),
-    // ),
-    //  Content for Feed tab
+    objectiveTab(),
+
+    //  Content for Outcome tab
     Container(
       // color: Colors.yellow.shade100,
       alignment: Alignment.center,
       child: const Text(
-        'Feed',
+        'Outcomes',
         style: TextStyle(fontSize: 40, fontFamily: 'Dongle'),
       ),
     ),
-    //  Content for Favourites tab
-    Container(
-      // color: Colors.yellow.shade100,
-      alignment: Alignment.center,
-      child: const Text(
-        'Favourite',
-        style: TextStyle(fontSize: 40, fontFamily: 'Dongle'),
-      ),
-    ),
+    //  Content for Courses tab
+    CoursesTab(),
     //  Content for Settings tab
     Container(
       // color: Colors.yellow.shade100,

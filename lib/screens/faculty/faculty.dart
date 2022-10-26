@@ -61,7 +61,7 @@ class Faculty extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.only(top: 35.0),
                         child: TabBarView(children: [
-                          FacultyLoginPage(),
+                          SignUpPage(),
                         ]),
                       ),
                     ),

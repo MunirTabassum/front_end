@@ -31,7 +31,7 @@ class UserType extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 80.0),
                   child: Column(children: [
                     userTypePageText(
-                      txt: 'Please select desired user type',
+                      txt: 'Select User Role',
                       txtClr: Colors.white,
                       fontSize: 40,
                     ),
@@ -46,23 +46,23 @@ class UserType extends StatelessWidget {
                       ),
                       child: TabBar(
                           indicator: const BoxDecoration(
-                            color: Color(0xFF175353),
+                            color: Colors.amber,
                           ),
                           labelColor: Colors.white,
                           unselectedLabelColor: Colors.black,
                           tabs: [
                             userTypeRegisterTab(
-                                title: 'Admin', icn: Icons.home),
+                                title: 'Log In', icn: Icons.home),
                             userTypeRegisterTab(
-                                title: 'Faculty', icn: Icons.home),
+                                title: 'Sign Up', icn: Icons.home),
                           ]),
                     ),
                     const Expanded(
                       child: Padding(
                         padding: EdgeInsets.only(top: 35.0),
                         child: TabBarView(children: [
-                          AdminLoginPage(),
-                          FacultyLoginPage(),
+                          LoginPage(),
+                          SignUpPage(),
                         ]),
                       ),
                     ),

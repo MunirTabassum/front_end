@@ -1,40 +1,34 @@
 import 'package:flutter/material.dart';
+import '../helpers/validations.dart';
 import '../screens/Admin/admin.dart';
 import '../screens/faculty/faculty_Dashboard/dashboard.dart';
 
-class AdminLoginPage extends StatefulWidget {
-  const AdminLoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<AdminLoginPage> createState() => _AdminLoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _AdminLoginPageState extends State<AdminLoginPage> {
+class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final userNameController = TextEditingController();
   final pwdController = TextEditingController();
 
-  void validate() {
+  validate() {
     if (formkey.currentState!.validate()) {
-      print('Validate');
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Admin()));
+      if (userNameController.text == "faculty") {
+        print('Successfully move to faculty dashboard ');
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => FacultyDashboard()));
+      } else if (userNameController.text == "admin") {
+        print('Successfully move to admin dashboard ');
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Admin()));
+      }
     } else {
       print(' Not Validated');
     }
-  }
-
-  String? validateUserName(String? value) {
-    if (value!.length == 0) {
-      return 'enter user name';
-    }
-    return null;
-  }
-
-  String? validatePassword(String? value) {
-    if (value!.length == 0) {
-      return 'Required Password';
-    }
-    return null;
   }
 
   @override
@@ -47,7 +41,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
           userTypePageField(
             hintText: 'User Name',
             controller: userNameController,
-            validators: validateUserName,
+            validators: validateEmail,
             typeKeyboard: TextInputType.text,
           ),
           const SizedBox(
@@ -62,10 +56,10 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
           const SizedBox(
             height: 20,
           ),
-          LoginButton(
+          userTypeBtn(
               title: 'Login',
               btnTxtClr: Colors.white,
-              btnBgClr: Color(0xFF175353),
+              btnBgClr: Colors.amber,
               onTap: () {
                 validate();
               }),
@@ -83,14 +77,14 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
   }
 }
 
-class FacultyLoginPage extends StatefulWidget {
-  const FacultyLoginPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<FacultyLoginPage> createState() => _FacultyLoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _FacultyLoginPageState extends State<FacultyLoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final userNameController = TextEditingController();
   final pwdController = TextEditingController();
@@ -127,7 +121,34 @@ class _FacultyLoginPageState extends State<FacultyLoginPage> {
         key: formkey,
         child: Column(children: [
           userTypePageField(
-            hintText: 'User Name',
+            hintText: 'First Name',
+            controller: userNameController,
+            validators: validateUserName,
+            typeKeyboard: TextInputType.text,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          userTypePageField(
+            hintText: 'Last Name',
+            controller: userNameController,
+            validators: validateUserName,
+            typeKeyboard: TextInputType.text,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          userTypePageField(
+            hintText: 'Email',
+            controller: userNameController,
+            validators: validateUserName,
+            typeKeyboard: TextInputType.text,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          userTypePageField(
+            hintText: 'Phone no',
             controller: userNameController,
             validators: validateUserName,
             typeKeyboard: TextInputType.text,
@@ -144,29 +165,25 @@ class _FacultyLoginPageState extends State<FacultyLoginPage> {
           const SizedBox(
             height: 20,
           ),
-          LoginButton(
-              title: 'Login',
+          userTypeBtn(
+              title: 'Sign Up',
               btnTxtClr: Colors.white,
-              btnBgClr: Color(0xFF175353),
+              // btnBgClr: Color(0xFF175353),
+              btnBgClr: Colors.amber,
               onTap: () {
                 validate();
               }),
           const SizedBox(
             height: 15,
           ),
-          userTypePageText(
-            txt: 'Forget Password',
-            txtClr: Colors.white,
-            fontSize: 45,
-          )
         ]),
       ),
     );
   }
 }
 
-class LoginButton extends StatelessWidget {
-  LoginButton({
+class userTypeBtn extends StatelessWidget {
+  userTypeBtn({
     required this.title,
     required this.btnTxtClr,
     required this.btnBgClr,
