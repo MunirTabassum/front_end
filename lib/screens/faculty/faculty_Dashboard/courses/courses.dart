@@ -20,7 +20,7 @@ class CoursesTab extends StatelessWidget {
             Row(
               children: [
                 smesterBox(
-                  title: 'Smester 01',
+                  title: 'Assigned Courses',
                   ontap: () {
                     print('smeserter 1 coures');
                     Navigator.push(
@@ -28,38 +28,6 @@ class CoursesTab extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => AssignedCourses()));
                   },
-                ),
-                smesterBox(
-                  title: 'Smester 02',
-                  ontap: () {},
-                ),
-                smesterBox(
-                  title: 'Smester 03',
-                  ontap: () {},
-                ),
-                smesterBox(
-                  title: 'Smester 04',
-                  ontap: () {},
-                ),
-                smesterBox(
-                  title: 'Smester 05',
-                  ontap: () {},
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                smesterBox(
-                  title: 'Smester 06',
-                  ontap: () {},
-                ),
-                smesterBox(
-                  title: 'Smester 07',
-                  ontap: () {},
-                ),
-                smesterBox(
-                  title: 'Smester 08',
-                  ontap: () {},
                 ),
               ],
             ),

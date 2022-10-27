@@ -48,7 +48,7 @@ class _AddObjectivesState extends State<AddObjectives> {
           ObjectiveButton(
               title: 'Submit',
               btnTxtClr: Colors.white,
-              btnBgClr: Color(0xFF175353),
+              btnBgClr: Colors.purple,
               onTap: () {}),
           const SizedBox(
             height: 15,

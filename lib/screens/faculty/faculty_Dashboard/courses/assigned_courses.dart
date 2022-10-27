@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../helpers/constant.dart';
+import '../Objectives/objectives.dart';
 
 class AssignedCourses extends StatelessWidget {
   const AssignedCourses({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class AssignedCourses extends StatelessWidget {
         body: ListView(children: <Widget>[
           const Center(
               child: Text(
-            'Smester 01 Courses',
+            'Assigned Courses',
             style: TextStyle(
                 color: Colors.amber,
                 fontSize: 32,
@@ -40,7 +41,12 @@ class AssignedCourses extends StatelessWidget {
                   title: '1',
                 )),
                 DataCell(courseNameDataCell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => objectiveTab()));
+                  },
                   title: 'Machine Learning',
                 )),
                 DataCell(dataCell(
@@ -52,7 +58,12 @@ class AssignedCourses extends StatelessWidget {
                   title: '2',
                 )),
                 DataCell(courseNameDataCell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => objectiveTab()));
+                  },
                   title: 'Deep Learning',
                 )),
                 DataCell(dataCell(
@@ -64,7 +75,12 @@ class AssignedCourses extends StatelessWidget {
                   title: '1',
                 )),
                 DataCell(courseNameDataCell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => objectiveTab()));
+                  },
                   title: 'Data Analytics',
                 )),
                 DataCell(dataCell(
